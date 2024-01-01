@@ -76,22 +76,13 @@ class UserBankAccountUpdateView(View):
 
 
 
-# class ProfileView(LoginRequiredMixin, View):
-#     template_name = "accounts/profile.html"
-
-#     def get(self, request, *args, **kwargs):
-#         # Make sure the user is authenticated
-#         if not request.user.is_authenticated:
-#             return render(request, 'accounts/login.html')
-#         else:
-#             user_accounts = UserAccount.objects.all()
-#             return render(request, self.template_name, {'user_accounts': user_accounts})
 
 
 def profile(request):
     user_profile, created = Profile.objects.get_or_create(user=request.user)
     book_post = user_profile.book_post.all()
     return render(request, 'accounts/profile.html', {'books': book_post})
+    
         
 def BookBuy(request,id):
     user_account = get_object_or_404(UserAccount, user=request.user)

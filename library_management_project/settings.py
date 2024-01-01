@@ -102,10 +102,14 @@ WSGI_APPLICATION = 'library_management_project.wsgi.application'
 #     }
 # }
 
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgres://mamarbank_user:LALgYwd0AYd1wgoh3tFD2Mx6wa1tR4Rs@dpg-cm551lmd3nmc73am8kt0-a.oregon-postgres.render.com/mamarbank',
+        default='postgres://library_project_user:yPjEIyINaOktBVMxDDNnrwOkkPU5aQvL@dpg-cm9ffven7f5s73eiqjvg-a.oregon-postgres.render.com/library_project',
+        conn_max_age=600
     )
 }
 
